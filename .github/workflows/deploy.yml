@@ -16,7 +16,7 @@ jobs:
         username: ${{ secrets.DOCKER_USER_NAME }}
         password: ${{ secrets.DOCKER_USER_PW }}
     - name: 이미지 빌드
-      run: docker build -t ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_IMAGE_NAME }}-front .
+      run: docker build -t ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_IMAGE_NAME }}-front:latest .
     - name: 도커허브에 이미지 푸시
       run: docker push ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_IMAGE_NAME }}-front
     - name: AWS EC2에 ssh 접속 후 배포
